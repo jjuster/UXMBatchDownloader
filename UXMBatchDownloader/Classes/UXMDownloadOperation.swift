@@ -61,7 +61,7 @@ class UXMDownloadOperation: UXMConcurrentOperation {
         self.task = session!.dataTask(with: request, completionHandler: { (data, response, error) in
             
             if let data = data {
-                let filename = self.getDocumentsDirectory().appendingPathComponent(self.destination)
+                let filename = (self.object.isTemporary ? NSTemporaryDirectory() : self.getDocumentsDirectory()).appendingPathComponent(self.destination)
                 try? data.write(to: URL(fileURLWithPath: filename), options: [.atomic])
                 
                 let url = URL(fileURLWithPath: filename)
