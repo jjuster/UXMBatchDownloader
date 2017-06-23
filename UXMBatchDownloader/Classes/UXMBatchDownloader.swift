@@ -13,6 +13,7 @@ open class UXMBatchObject {
     open var url: String
     open var destination: String?
     open var backupToCloud: Bool = false
+    open var isTemporary: Bool = false
     open var numberOfRetries: Int = 0
     
     public init(url: String, destination: String?, backupToCloud: Bool = false, numberOfRetries: Int = 0) {
